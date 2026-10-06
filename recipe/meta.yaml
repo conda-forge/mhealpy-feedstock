@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mhealpy-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/mhealpy-{{ version }}.tar.gz
   sha256: 96492082f05c360291cccf37f372e567d8f3a9fa6b0cc01d5fbb972d5c2a6a1f
 
 build:
