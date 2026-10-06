@@ -189,4 +189,5 @@ Feedstock Maintainers
 =====================
 
 * [@ickc](https://github.com/ickc/)
+* [@titodalcanton](https://github.com/titodalcanton/)
 
