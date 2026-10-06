@@ -1,5 +1,5 @@
 {% set name = "mhealpy" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.7" %}
 
 
 package:
@@ -8,21 +8,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mhealpy-{{ version }}.tar.gz
-  sha256: a0eb6c127fddeaa791ffc46cf4c5b38c461f5e2f80bb4cdd398988410f7f3a59
+  sha256: 96492082f05c360291cccf37f372e567d8f3a9fa6b0cc01d5fbb972d5c2a6a1f
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
+    - python {{ python_min }}
+    - setuptools
     - pip
-    - python >=3.6
   run:
+    - python >={{ python_min }}
     - healpy
-    # upstream doesn't constrain python, but healpy is not noarch and recent versions of healpy in conda-forge has py36 or upper binaries only
-    - python >=3.6
+    - matplotlib-base
 
 test:
   imports:
@@ -31,6 +32,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
